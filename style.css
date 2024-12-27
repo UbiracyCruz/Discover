@@ -1,0 +1,42 @@
+:root{
+    /* Dark Mode */
+    --text-color-dark: #FFFFFF;
+    --stroke-color-dark: #ffffff85;
+    --surface-color-dark: #ffffff0a;
+    --surface-color-dark-hover: #ffffff05;
+    --highlight-color-dark: #ffffff1a;
+    --background-img-mobile-dark: url("./assets/bg-mobile.jpg");
+    --background-img-desktop-dark: url("./assets/bg-desktop.jpg");
+    --avatar-img-dark: url("./assets/avatar.png");
+    --switch-icon-dark: url("./assets/moon-stars.svg");
+    
+    /* Light Mode */
+    --text-color-light: #000000;
+    --stroke-color-light: #00000085;
+    --surface-color-light: #0000000a;
+    --surface-color-light-hover: #00000005;
+    --highlight-color-light: #0000001a;
+    --background-img-mobile-light: url("./assets/bg-mobile-light.jpg");
+    --background-img-desktop-light: url("./assets/bg-desktop-light.jpg");
+    --avatar-img-light: url("./assets/avatar-light.png");
+    --switch-icon-light: url("./assets/sun.svg");
+
+    --text-medium: 500 16px/24px Inter;
+    --text-small: 400 14px/24px Inter;
+}
+
+body {
+    font: var(--text-medium); 
+    background-image: var(--background-img-mobile-dark);
+    color: var(--text-color-dark);
+}
+
+a{
+    color: var(--text-color-dark);
+}
+li{
+    list-style-type: none;
+}
+li a{
+    text-decoration: none;
+}
