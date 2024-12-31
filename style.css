@@ -26,10 +26,16 @@
 }
 
 body {
+    padding-top: 50px;
+    margin: 0;  
     font: var(--text-medium); 
     background-image: var(--background-img-mobile-dark);
+    background-size: cover;
     color: var(--text-color-dark);
     text-align: center;
+}
+#container{
+    display: grid;
 }
 #profile{
     padding: 24px;
@@ -58,29 +64,28 @@ body {
     z-index: 1;
     width: 2.5rem;
     border-radius: 24px;
-    border-style: solid;
+    border: none;
     position: absolute;
     background-image: url("./assets/moon-stars.svg");
     background-repeat: no-repeat;
     background-position: center;
-
+    background-color: var(--text-color-dark);
 }
 
 button:hover{
-    border-style: solid;
-    border-color: var(--surface-color-dark-hover);
+    border: 5px solid var(--highlight-color-dark);
 }
 
 a{
     color: var(--text-color-dark);
 }
 ul{
-    margin: 1.5rem;
-    padding: 0;
+    margin: 0;
+    padding: 1.5rem;
 }
 li{
     list-style-type: none;
-    margin-block: 1rem;
+    margin-bottom: 1rem;
     padding-block: 0.5rem;
     background-color: var(--surface-color-dark);
     border-style: solid;
@@ -88,6 +93,53 @@ li{
     border-color: var(--stroke-color-dark);
     border-radius: 0.5rem;
 }
+li:last-child{
+    margin-bottom: 0;
+}
+
+li:hover{
+    background-color: var(--surface-color-dark-hover);
+    border-color: var(--text-color-dark);
+}
+
 li a{
     text-decoration: none;
+}
+
+#social-links{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.5rem;
+
+    & ion-icon{
+        height: 1.5rem;
+        width: 1.5rem;
+        transform: translateY(10%);
+    }
+
+    & a{
+        height: 40px;
+        width: 40px;
+        border-radius: 1.5rem;
+        align-content: center;
+    }
+    
+    & a:hover{
+        background-color: var(--highlight-color-dark);
+    }
+}
+
+footer{
+    padding: 1.5rem;
+}
+
+@media (min-width: 720px) {
+    body{
+        background-image: var(--background-img-desktop-dark);
+        background-size: cover;
+    }
+    #container{
+        max-width: 580px;
+        margin-inline: auto;
+    }
 }
