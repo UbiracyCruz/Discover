@@ -29,13 +29,64 @@ body {
     font: var(--text-medium); 
     background-image: var(--background-img-mobile-dark);
     color: var(--text-color-dark);
+    text-align: center;
+}
+#profile{
+    padding: 24px;
+
+    & img{
+        margin-inline: auto auto;
+        height: 112px;
+        width: 112px;
+    }
+}
+
+#switch > span{
+    display: inline-block;
+    width: 64px;
+    height: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--surface-color-dark);
+    border-color: var(--stroke-color-dark);
+    border-style: solid;
+    border-width: 1px;
+    margin-block: 7px;
+}
+
+#switch > button {
+    height: 2.5rem;
+    z-index: 1;
+    width: 2.5rem;
+    border-radius: 24px;
+    border-style: solid;
+    position: absolute;
+    background-image: url("./assets/moon-stars.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+button:hover{
+    border-style: solid;
+    border-color: var(--surface-color-dark-hover);
 }
 
 a{
     color: var(--text-color-dark);
 }
+ul{
+    margin: 1.5rem;
+    padding: 0;
+}
 li{
     list-style-type: none;
+    margin-block: 1rem;
+    padding-block: 0.5rem;
+    background-color: var(--surface-color-dark);
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--stroke-color-dark);
+    border-radius: 0.5rem;
 }
 li a{
     text-decoration: none;
