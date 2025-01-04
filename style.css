@@ -37,6 +37,7 @@ body {
     color: var(--text-color);
     text-align: center;
     background-position: top center;
+    height: 100svh;
 }
 #container{
     display: grid;
