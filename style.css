@@ -1,41 +1,46 @@
 :root{
     /* Dark Mode */
-    --text-color-dark: #FFFFFF;
-    --stroke-color-dark: #ffffff85;
-    --surface-color-dark: #ffffff0a;
-    --surface-color-dark-hover: #ffffff05;
-    --highlight-color-dark: #ffffff1a;
-    --background-img-mobile-dark: url("./assets/bg-mobile.jpg");
-    --background-img-desktop-dark: url("./assets/bg-desktop.jpg");
-    --avatar-img-dark: url("./assets/avatar.png");
-    --switch-icon-dark: url("./assets/moon-stars.svg");
+    --text-color: #FFFFFF;
+    --stroke-color: #ffffff85;
+    --surface-color: #ffffff0a;
+    --surface-color-hover: #ffffff05;
+    --highlight-color: #ffffff1a;
+    --background-img-mobile: url("./assets/bg-mobile.jpg");
+    --background-img-desktop: url("./assets/bg-desktop.jpg");
+    --avatar-img: url("./assets/avatar.png");
+    --switch-icon: url("./assets/moon-stars.svg");
+    --switch-button-position: translateX(-50%);
     
-    /* Light Mode */
-    --text-color-light: #000000;
-    --stroke-color-light: #00000085;
-    --surface-color-light: #0000000a;
-    --surface-color-light-hover: #00000005;
-    --highlight-color-light: #0000001a;
-    --background-img-mobile-light: url("./assets/bg-mobile-light.jpg");
-    --background-img-desktop-light: url("./assets/bg-desktop-light.jpg");
-    --avatar-img-light: url("./assets/avatar-light.png");
-    --switch-icon-light: url("./assets/sun.svg");
-
     --text-medium: 500 16px/24px Inter;
     --text-small: 400 14px/24px Inter;
 }
 
+.light{
+    /* Light Mode */
+    --text-color: #000000;
+    --stroke-color: #00000085;
+    --surface-color: #0000000a;
+    --surface-color-hover: #00000005;
+    --highlight-color: #0000001a;
+    --background-img-mobile: url("./assets/bg-mobile-light.jpg");
+    --background-img-desktop: url("./assets/bg-desktop-light.jpg");
+    --avatar-img: url("./assets/avatar-light.png");
+    --switch-icon: url("./assets/sun.svg");
+    --switch-button-position: translateX(50%);
+}
+
 body {
-    padding-top: 50px;
     margin: 0;  
     font: var(--text-medium); 
-    background-image: var(--background-img-mobile-dark);
+    background-image: var(--background-img-mobile);
     background-size: cover;
-    color: var(--text-color-dark);
+    color: var(--text-color);
     text-align: center;
+    background-position: top center;
 }
 #container{
     display: grid;
+    margin-top: 3.5rem;
 }
 #profile{
     padding: 24px;
@@ -45,6 +50,12 @@ body {
         height: 112px;
         width: 112px;
     }
+
+    & p{
+        font: var(--text-small);
+        margin-bottom: 0;
+        margin-top: 0.5rem;
+    }
 }
 
 #switch > span{
@@ -52,58 +63,70 @@ body {
     width: 64px;
     height: 1.5rem;
     border-radius: 1rem;
-    background-color: var(--surface-color-dark);
-    border-color: var(--stroke-color-dark);
+    background-color: var(--surface-color);
+    border-color: var(--stroke-color);
     border-style: solid;
     border-width: 1px;
-    margin-block: 7px;
+    margin-block: 3px;
 }
 
 #switch > button {
-    height: 2.5rem;
+    height: 2rem;
     z-index: 1;
-    width: 2.5rem;
+    width: 2rem;
     border-radius: 24px;
     border: none;
     position: absolute;
-    background-image: url("./assets/moon-stars.svg");
+    background-image: var(--switch-icon);
     background-repeat: no-repeat;
     background-position: center;
-    background-color: var(--text-color-dark);
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+    animation: slide-back 0.2s;
+    transform: var(--switch-button-position);
 }
 
-button:hover{
-    border: 5px solid var(--highlight-color-dark);
+#switch > button:hover{
+    outline: 8px solid var(--highlight-color);
+}
+
+.light #switch button {
+    animation: slide-in 0.2s forwards;
 }
 
 a{
-    color: var(--text-color-dark);
+    color: var(--text-color);
 }
+
 ul{
     margin: 0;
     padding: 1.5rem;
+    
+    & li{
+        list-style-type: none;
+        margin-bottom: 1rem;
+        padding-block: 0.5rem;
+        background-color: var(--surface-color);
+        border-style: solid;
+        border-width: 1px;
+        border-color: var(--stroke-color);
+        border-radius: 0.5rem;
+    
+        & a{
+            text-decoration: none;
+        }
+    }
 }
-li{
-    list-style-type: none;
-    margin-bottom: 1rem;
-    padding-block: 0.5rem;
-    background-color: var(--surface-color-dark);
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--stroke-color-dark);
-    border-radius: 0.5rem;
-}
+
 li:last-child{
     margin-bottom: 0;
 }
 
 li:hover{
-    background-color: var(--surface-color-dark-hover);
-    border-color: var(--text-color-dark);
-}
-
-li a{
-    text-decoration: none;
+    background-color: var(--surface-color-hover);
+    border-color: var(--text-color);
+    transition: 0.2s;
 }
 
 #social-links{
@@ -125,21 +148,39 @@ li a{
     }
     
     & a:hover{
-        background-color: var(--highlight-color-dark);
+        background-color: var(--highlight-color);
+        transition: 0.2s;
     }
 }
 
 footer{
     padding: 1.5rem;
+    font: var(--text-small);
 }
 
 @media (min-width: 720px) {
     body{
-        background-image: var(--background-img-desktop-dark);
-        background-size: cover;
+        background-image: var(--background-img-desktop);
     }
     #container{
         max-width: 580px;
         margin-inline: auto;
     }
 }
+@keyframes slide-in {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(150%);
+    }
+  }
+  
+  @keyframes slide-back {
+    from {
+      transform: translateX(50%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
